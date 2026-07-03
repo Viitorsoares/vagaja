@@ -1,65 +1,76 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="h-auto w-full bg-fundo">
+      <section className="px-6">
+        <div>
+          <h1 className="pt-20 text-branco text-center text-4xl font-extrabold leading-tight">Estacionamento <br /> urbano <br />
+            <span className="text-4xl font-extrabold text-azul"> inteligente e em tempo real</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          <p className="mt-8 text-center text-branco"> Encontre vagas livres em segundos ou gerencie
+          o estacionamento urbano como agente de fiscalização.
+          Tecnologia a serviço da cidade.</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <div className="mt-10 px-6 flex flex-col gap-4">
+        <button className="bg-azul py-3 rounded-2xl">
+          <Link href={"/driver"} className="text-branco">Sou Motorista - Ver Vagas</Link>
+        </button>
+        <button className="bg-roxo py-3 rounded-2xl">
+          <Link href={"/auth/loginForm"} className="text-branco">Sou Agente - Área Restrita</Link>
+        </button>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 mt-15 px-6">
+        <Card className="flex flex-col py-12 px-7 rounded-xl bg-azul">
+          <p className="text-1.7rem font-extrabold text-branco">12+</p>
+          <p className="text-badge">Cidades atendidas</p>
+        </Card>
+
+        <Card className="flex flex-col py-12 px-6 rounded-xl bg-azul">
+          <p className="text-1.7rem font-extrabold text-branco">3.4k</p>
+          <p className="text-badge">Vagas monitoradas</p>
+        </Card>
+
+        <Card className="flex flex-col py-12 px-5 rounded-xl bg-azul">
+          <p className="text-1.7rem font-extrabold text-branco">840</p>
+          <p className="text-badge">Agentes cadastrados</p>
+        </Card>
+
+        <Card className="flex flex-col py-12 px-6 rounded-xl bg-azul">
+          <p className="text-1.7rem font-extrabold text-branco">98%</p>
+          <p className="text-badge">Uptime de sistema</p>
+        </Card>
+      </div>
+
+      <div className="min-h-screen mt-15 bg-background-2">
+        <div className="px-6">
+          <div className="text-branco pt-8">
+            <h2 className="text-2xl font-bold pb-2">Como Funciona</h2>
+            <p>Simples para motoristas e poderoso para agentes.</p>
+          </div>
+
+          <div className="flex flex-col gap-5 mt-8">
+            <Card className="bg-azul w-full flex flex-col gap-3 px-7 py-15 rounded-xl text-badge whitespace-normal">
+              <p className="text-badge-title text-branco font-bold">1. Acesse o mapa</p>
+              <p className="text-branco">Abra o mapa público no seu navegador, sem cadastro ou login necessário.</p>
+            </Card>
+
+            <Card className="bg-azul w-full flex flex-col gap-3 px-7 py-15 rounded-xl text-badge whitespace-normal">
+              <p className="text-badge-title text-branco font-bold">2. Encontre a vaga</p>
+              <p className="text-branco">Visualize em tempo real quais estacionamentos têm vagas livres perto de você.</p>
+            </Card>
+
+            <Card className="bg-azul w-full flex flex-col gap-3 px-7 py-15 rounded-xl text-badge whitespace-normal">
+              <p className="text-badge-title text-branco font-bold">3. Chegue direto</p>
+              <p className="text-branco">Navegue ao estacionamento escolhido e economize tempo e combustível.</p>
+            </Card>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

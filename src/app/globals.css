@@ -4,6 +4,27 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-*: initial;
+  --color-fundo: #080E1A;
+  --color-background-2: #0D131E;
+  --color-azul: #2563EB;
+  --color-roxo: #7C3AED;
+  --color-branco: #fff;
+  --color-bermuda: #78dcca;
+  --color-green: #38b000;
+  --color-orange: #ff9f1c;
+  --color-red: #e5383b;
+  --color-gray-text: #A0AABA;
+
+  --text-badge-title: 1rem; 
+  --text-badge: .9rem; 
+
+  --text-1.7rem: 1.7rem; 
+
+  --spacing-map: 30rem
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
