@@ -7,11 +7,11 @@ export default function Header() {
             <div className="w-7 h-7 flex items-center justify-center rounded-full bg-azul">
                 <MapPinIcon className="w-4 text-branco"></MapPinIcon>
             </div>
-            <p className="text-branco text-xl font-extrabold">vagajá</p>
+            <p className="text-text-branco text-xl font-extrabold">vagajá</p>
           </div>
 
           <div>
-          <Bars3Icon className="w-8 text-branco"></Bars3Icon>
+          <Bars3Icon className="w-8 text-text-branco"></Bars3Icon>
           </div>
         </header>
     )
