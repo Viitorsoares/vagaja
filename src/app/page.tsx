@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -46,8 +47,8 @@ export default function Home() {
         </Card>
       </div>
 
-      <div className="min-h-screen mt-15 bg-background-2">
-        <div className="px-6">
+      <div className="min-full mt-15 bg-background-2">
+        <div className="h-160 px-6">
           <div className="text-text-branco pt-8">
             <h2 className="text-2xl font-bold pb-2">Como Funciona</h2>
             <p>Simples para motoristas e poderoso para agentes.</p>
@@ -70,6 +71,36 @@ export default function Home() {
             </Card>
           </div>
         </div>
+      </div>
+
+      <div className="flex flex-col my-10 gap-6 px-6">
+        <div className="">
+          <Image 
+            src={"/image/driver.jpg"}
+            alt="carro"
+            width={400}
+            height={300}
+            priority
+            className="rounded-3xl">
+
+          </Image>
+        </div>
+
+        <div className="">
+          <Image 
+            src={"/image/agente.jpg"}
+            alt="carro"
+            width={400}
+            height={300}
+            priority
+            className="rounded-3xl">
+            
+          </Image>
+        </div>
+      </div>
+
+      <div>
+
       </div>
     </main>
   );

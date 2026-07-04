@@ -5,10 +5,10 @@ import { FaInstagram, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 export default function Footer() {
     return (
         <footer className="bg-fundo">
-            <div className="px-6">
-                <div className="flex gap-1.5 mb-5">
+            <div className="px-6 my-10">
+                <div className="flex gap-1.5 mb-5 cursor-pointer">
                     <div className="w-7 h-7 flex items-center justify-center rounded-full bg-azul">
-                        <MapPinIcon className="w-4 text-branco"></MapPinIcon>
+                        <MapPinIcon className="w-4 text-text-branco"></MapPinIcon>
                     </div>
                     <p className="text-text-branco text-xl font-extrabold">vagajá</p>
                 </div>
@@ -19,33 +19,33 @@ export default function Footer() {
                 </p>
 
                 <div className="flex flex-row gap-4 mt-10 text-gray-text">
-                    <FaInstagram className="w-7 h-7" />
-                    <FaGithub className="w-7 h-7" />
-                    <FaLinkedin className="w-7 h-7" />
-                    <FaTwitter className="w-7 h-7" />
+                    <FaInstagram className="w-7 h-7 cursor-pointer" />
+                    <FaGithub className="w-7 h-7 cursor-pointer" />
+                    <FaLinkedin className="w-7 h-7 cursor-pointer" />
+                    <FaTwitter className="w-7 h-7 cursor-pointer" />
                 </div>
             </div>
 
-            <div className="mt-10 px-6">
+            <div className="px-6">
                 <div className="mb-10">
                     <h2 className="text-text-branco font-extrabold pb-3">Serviços</h2>
                     <div className="text-gray-text text-footer flex flex-col gap-3">
-                        <p>Mapa de Vagas</p>
-                        <p>Área do Agente</p>
-                        <p>Cadastro de Agente</p>
-                        <p>Planos e Parcerias</p>
-                        <p>API para Empresas</p>
+                        <p className="cursor-pointer">Mapa de Vagas</p>
+                        <p className="cursor-pointer">Área do Agente</p>
+                        <p className="cursor-pointer">Cadastro de Agente</p>
+                        <p className="cursor-pointer">Planos e Parcerias</p>
+                        <p className="cursor-pointer">API para Empresas</p>
                     </div>
                 </div>
 
                 <div className="mb-10">
                     <h2 className="text-text-branco font-extrabold pb-3">Institucioal</h2>
                     <div className="text-gray-text text-footer flex flex-col gap-3">
-                        <p>Sobre nós</p>
-                        <p>Política de Privacidade</p>
-                        <p>Termos de Uso</p>
-                        <p>Acessibilidade</p>
-                        <p>Imprensa</p>
+                        <p className="cursor-pointer">Sobre nós</p>
+                        <p className="cursor-pointer">Política de Privacidade</p>
+                        <p className="cursor-pointer">Termos de Uso</p>
+                        <p className="cursor-pointer">Acessibilidade</p>
+                        <p className="cursor-pointer">Imprensa</p>
                     </div>
                 </div>
                 
@@ -58,7 +58,7 @@ export default function Footer() {
                             </div>
                             <div>
                                 <p className="text-text-branco font-semibold">0800 721 0000</p>
-                                <p className="text-gray-text text-footer">Seg–Sex, 8h às 18h</p>
+                                <p className="text-gray-text text-footer">Seg-Sex, 8h às 18h</p>
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@ export default function Footer() {
                                 <Mail />
                             </div>
                             <div>
-                                <p className="text-text-branco font-semibold">contato@parkurban.com.br</p>
+                                <p className="text-text-branco font-semibold cursor-pointer">contato@parkurban.com.br</p>
                                 <p className="text-gray-text text-footer">Resposta em até 24h</p>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ export default function Footer() {
                                 <SquareArrowOutUpRight />
                             </div>
                             <div>
-                                <p className="text-text-branco font-semibold">Central de Ajuda</p>
+                                <p className="text-text-branco font-semibold cursor-pointer">Central de Ajuda</p>
                                 <p className="text-gray-text text-footer">Tutoriais e suporte</p>
                             </div>
                         </div>
