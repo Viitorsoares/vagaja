@@ -13,7 +13,7 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full px-6 pt-3 flex justify-between bg-fundo">
+    <header className="w-full px-6 pt-4 flex justify-between bg-fundo">
       <div className="flex gap-1.5 cursor-pointer">
         <div className="w-7 h-7 flex items-center justify-center rounded-full bg-azul">
           <MapPinIcon className="w-4 text-text-branco"></MapPinIcon>
@@ -23,26 +23,34 @@ export default function Header() {
 
       <div>
         {open && (
-          <nav className="absolute bg-fundo px-6 min-h-[24vh] left-0 top-[5%] w-full">
-            <ul className="flex flex-col gap-4 mt-6  rounded-3xlfont-medium text-text-branco md:flex-row">
-              <span className="w-full h-15 px-4 items-center flex justify-between rounded-3xl bg-azul">
-                <li>
-                  <Link href={"/"}>Início</Link>
-                </li>
-                <ChevronRight />
-              </span>
-              <span className="w-full h-15 px-4 items-center flex justify-between rounded-3xl bg-azul">
-                <li>
-                  <Link href={""}>Motorista</Link>
-                </li>
-                <ChevronRight />
-              </span>
-              <span className="w-full h-15 px-4 items-center flex justify-between rounded-3xl bg-azul">
-                <li>
-                  <Link href={""}>Agentes</Link>
-                </li>
-                <ChevronRight />
-              </span>
+          <nav className="absolute bg-fundo px-6 min-h-[16vh] left-0 top-[5%] w-full">
+            <ul className="flex flex-col gap-4 mt-6 rounded-3xl font-medium text-text-branco md:flex-row">
+              <Link href={"/"}>
+                <span className="w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul">
+                  <li>
+                    Início
+                  </li>
+                  <ChevronRight />
+                </span>
+              </Link>
+
+              <Link href={""}>
+                <span className="w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul">
+                  <li>
+                    Motorista
+                  </li>
+                  <ChevronRight />
+                </span>
+              </Link>
+
+              <Link href={""}>
+                <span className="w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul">
+                  <li>
+                    Agentes
+                  </li>
+                  <ChevronRight />
+                </span>
+              </Link>
             </ul>
           </nav>
         )}
