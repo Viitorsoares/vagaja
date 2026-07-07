@@ -152,3 +152,18 @@
     @apply font-sans;
   }
 }
+
+@layer components {
+
+  .btn-menu {
+    @apply w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul
+  }
+
+  .col-footer {
+    @apply text-gray-text text-footer flex flex-col gap-3
+  }
+
+  .icon-footer {
+    @apply w-7 h-7 cursor-pointer
+  }
+}

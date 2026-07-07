@@ -19,17 +19,17 @@ export default function Footer() {
                 </p>
 
                 <div className="flex flex-row gap-4 mt-10 text-gray-text">
-                    <FaInstagram className="w-7 h-7 cursor-pointer" />
-                    <FaGithub className="w-7 h-7 cursor-pointer" />
-                    <FaLinkedin className="w-7 h-7 cursor-pointer" />
-                    <FaTwitter className="w-7 h-7 cursor-pointer" />
+                    <FaInstagram className="icon-footer" />
+                    <FaGithub className="icon-footer" />
+                    <FaLinkedin className="icon-footer" />
+                    <FaTwitter className="icon-footer" />
                 </div>
             </div>
 
             <div className="px-6">
                 <div className="mb-10">
                     <h2 className="text-text-branco font-extrabold pb-3">Serviços</h2>
-                    <div className="text-gray-text text-footer flex flex-col gap-3">
+                    <div className="col-footer">
                         <p className="cursor-pointer">Mapa de Vagas</p>
                         <p className="cursor-pointer">Área do Agente</p>
                         <p className="cursor-pointer">Cadastro de Agente</p>
@@ -40,7 +40,7 @@ export default function Footer() {
 
                 <div className="mb-10">
                     <h2 className="text-text-branco font-extrabold pb-3">Institucioal</h2>
-                    <div className="text-gray-text text-footer flex flex-col gap-3">
+                    <div className="col-footer">
                         <p className="cursor-pointer">Sobre nós</p>
                         <p className="cursor-pointer">Política de Privacidade</p>
                         <p className="cursor-pointer">Termos de Uso</p>

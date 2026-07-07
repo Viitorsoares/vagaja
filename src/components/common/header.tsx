@@ -26,7 +26,7 @@ export default function Header() {
           <nav className="absolute bg-fundo px-6 min-h-[33vh] left-0 top-[5%] w-full">
             <ul className="flex flex-col gap-4 mt-6 rounded-3xl font-medium text-text-branco md:flex-row">
               <Link href={"/"}>
-                <span className="w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul">
+                <span className="btn-menu">
                   <li>
                     Início
                   </li>
@@ -35,7 +35,7 @@ export default function Header() {
               </Link>
 
               <Link href={"/driver"}>
-                <span className="w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul">
+                <span className="btn-menu">
                   <li>
                     Motorista
                   </li>
@@ -44,7 +44,7 @@ export default function Header() {
               </Link>
 
               <Link href={"/auth/loginForm"}>
-                <span className="w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul">
+                <span className="btn-menu">
                   <li>
                     Agentes
                   </li>
