@@ -157,7 +157,7 @@
 @layer components {
 
   .btn-menu {
-    @apply w-full h-14 px-4 items-center flex justify-between rounded-3xl bg-azul
+    @apply w-full h-14 px-4 items-center flex justify-between rounded-4xl bg-azul
   }
 
   .col-footer {

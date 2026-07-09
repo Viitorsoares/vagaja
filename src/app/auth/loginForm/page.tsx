@@ -55,7 +55,7 @@ export default function LoginForm() {
                 </CardContent>
                 <CardFooter>
                     <CardDescription className="text-black ">
-                        Novo agente? <Link className="text-azul font-semibold" href={"./registerForm"}>Criar conta gratuitamente</Link>
+                        Novo agente? <Link className="text-azul font-semibold" href={"/auth/registerForm"}>Criar conta gratuitamente</Link>
                         <p className="mt-2"><Link className="text-azul font-semibold" href={""}>Esqueceu a senha?</Link></p>
                     </CardDescription>
                 </CardFooter>

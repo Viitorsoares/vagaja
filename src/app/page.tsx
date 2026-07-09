@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { Globe, Zap, ChartSpline, Shield, Users } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -18,12 +19,12 @@ export default function Home() {
       </section>
 
       <div className="mt-10 px-6 flex flex-col gap-4">
-        <button className="bg-azul py-4 rounded-2xl">
+        <Button className="bg-azul py-7 text-paragraph rounded-4xl">
           <Link href={"/driver"} className="text-text-branco font-medium">Sou Motorista - Ver Vagas</Link>
-        </button>
-        <button className="bg-azul py-4 rounded-2xl">
+        </Button>
+        <Button className="bg-azul py-7 text-paragraph rounded-4xl">
           <Link href={"/auth/loginForm"} className="text-text-branco font-medium">Sou Agente - Área Restrita</Link>
-        </button>
+        </Button>
       </div>
 
       <div className="grid grid-cols-2 gap-4 mt-15 px-6">
@@ -74,7 +75,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col my-10 gap-6 px-6">
+      <div className="flex flex-col my-10 gap-5 px-6">
         <div className="">
           <Image
             src={"/image/driver.jpg"}
