@@ -1,23 +1,22 @@
 generator client {
-  provider = "prisma"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+ 
 }
 
 model agent {
-  id           Int            @id @default(autoincrement())
-  nome         String         @db.VarChar(90)
-  lastName    String         @db.VarChar(90)
-  birthDate    DateTime       @db.Date
-  phone        String
-  cpf          String
-  email        String         @unique
-  password     String
-  created_on   DateTime       @default(now())
-  parkingSpots parking_spot[]
+  id         Int      @id @default(autoincrement())
+  nome       String   @db.VarChar(90)
+  lastName   String   @db.VarChar(90)
+  phone      String
+  cpf        String
+  email      String   @unique
+  password   String
+  created_on DateTime @default(now())
 }
 
 enum StatusVagas {
@@ -31,6 +30,73 @@ model parking_spot {
   latitude    Float
   status      StatusVagas @default(Livre)
   released_on DateTime    @default(now())
-  agent_id    Int
-  agent       agent       @relation(fields: [agent_id], references: [id])
+  agent_id    String
+  agent       User        @relation(fields: [agent_id], references: [id])
+}
+
+model User {
+  id            String         @id
+  name          String
+  lastName      String         @db.VarChar(90)
+  phone         String
+  cpf           String
+  email         String
+  emailVerified Boolean        @default(false)
+  image         String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  sessions      Session[]
+  accounts      Account[]
+  parkingSpots  parking_spot[]
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
 }

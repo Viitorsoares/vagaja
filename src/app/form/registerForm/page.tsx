@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,16 +6,34 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { schema, type FormData } from "@/lib/validations/registerSchema"
+import { authClient } from "@/lib/authClient";
 
 export default function RegisterForm() {
+    const router = useRouter()
+
     const {register, handleSubmit, formState: {errors} } = useForm<FormData>({
         resolver: zodResolver(schema)
     })
 
-    function onSubmit(data: FormData) {
-        console.log(data)
+    async function onSubmit(formData: FormData) {
+        const { data, error } = await authClient.signUp.email({
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            callbackURL: "/form/loginForm"
+        }, {
+            onSuccess: (ctx) => {
+                console.log("Cadastrado", ctx)
+                router.replace("/form/loginForm")
+            },
+            onError: (ctx) => {
+                console.log("Erro ao criar conta")
+                console.log(ctx)
+            }
+        })
     }
 
     return (
@@ -36,11 +54,6 @@ export default function RegisterForm() {
                             <div>
                                 <Label className="pb-1.5 text-paragraph">Sobrenome</Label>
                                 <Input type="text" required {...register('lastName')}/>
-                            </div>
-
-                            <div>
-                                <Label className="pb-1.5 text-paragraph">Data de Nascimento</Label>
-                                <Input type="date" required {...register('birthDate')}/>
                             </div>
 
                             <div>
@@ -69,7 +82,7 @@ export default function RegisterForm() {
                 </CardContent>
                 <CardFooter>
                     <CardDescription className="text-black">
-                        Já tem conta? <Link href={"./loginForm"} className="text-azul font-semibold">Fazer login</Link>
+                        Já tem conta? <Link href={"/form/loginForm"} className="text-azul font-semibold">Fazer login</Link>
                     </CardDescription>
                 </CardFooter>
             </Card>

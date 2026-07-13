@@ -11,11 +11,15 @@ import { schema, type FormData } from "@/lib/validations/loginSchema"
 
 export default function LoginForm() {
     const { register, handleSubmit, formState: {errors} } = useForm<FormData>({
-        resolver: zodResolver(schema)
+        resolver: zodResolver(schema),
+        defaultValues: {
+            email: "",
+            password: "",
+        }
     })
 
-    function onSubmit(data: FormData) {
-        console.log(data)
+    async function onSubmit(data: FormData) {
+        alert('etstbd')
     }
 
     return (

@@ -7,7 +7,6 @@ import { schema } from "@/lib/validations/registerSchema"
 export async function registerAction(data: {
     name: string
     lastName: string
-    birthDate: Date
     phone: string
     cpf: string
     email: string
@@ -39,7 +38,6 @@ export async function registerAction(data: {
         data: {
             nome: data.name,
             lastName: data.lastName,
-            birthDate: data.birthDate,
             phone: data.phone,
             cpf: data.cpf,
             email: data.email,
@@ -48,7 +46,7 @@ export async function registerAction(data: {
     })
 
     return {
-        success:true
+        registerAction
     }
 }
 

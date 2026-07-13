@@ -22,7 +22,8 @@ export default function RootLayout({
     <html
       lang="en" className={ manropeFont.className}
     >
-      <body className="min-h-full flex flex-col bg-fundo">
+      <body className="min-h-full flex flex-col bg-fundo"
+      suppressHydrationWarning={true}>
         <Header />
         {children}
         <Footer />
