@@ -7,14 +7,7 @@ import { Label } from "@/components/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from 'react-hook-form'
-import z from "zod";
-
-const schema = z.object({
-    email: z.email("Digite um email válido"),
-    password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres")
-})
-
-type FormData = z.infer<typeof schema>
+import { schema, type FormData } from "@/lib/validations/loginSchema"
 
 export default function LoginForm() {
     const { register, handleSubmit, formState: {errors} } = useForm<FormData>({
@@ -55,7 +48,7 @@ export default function LoginForm() {
                 </CardContent>
                 <CardFooter>
                     <CardDescription className="text-black ">
-                        Novo agente? <Link className="text-azul font-semibold" href={"/auth/registerForm"}>Criar conta gratuitamente</Link>
+                        Novo agente? <Link className="text-azul font-semibold" href={"/form/registerForm"}>Criar conta gratuitamente</Link>
                         <p className="mt-2"><Link className="text-azul font-semibold" href={""}>Esqueceu a senha?</Link></p>
                     </CardDescription>
                 </CardFooter>

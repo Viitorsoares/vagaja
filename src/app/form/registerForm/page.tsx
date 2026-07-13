@@ -7,17 +7,7 @@ import { Label } from "@/components/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import z from "zod";
-
-export const schema = z.object({
-    name: z.string(),
-    lastName: z.string(),
-    cpf: z.string(),
-    email: z.email("Digite um email válido"),
-    password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres")
-})
-
-type FormData = z.infer<typeof schema>
+import { schema, type FormData } from "@/lib/validations/registerSchema"
 
 export default function RegisterForm() {
     const {register, handleSubmit, formState: {errors} } = useForm<FormData>({
@@ -46,6 +36,16 @@ export default function RegisterForm() {
                             <div>
                                 <Label className="pb-1.5 text-paragraph">Sobrenome</Label>
                                 <Input type="text" required {...register('lastName')}/>
+                            </div>
+
+                            <div>
+                                <Label className="pb-1.5 text-paragraph">Data de Nascimento</Label>
+                                <Input type="date" required {...register('birthDate')}/>
+                            </div>
+
+                            <div>
+                                <Label className="pb-1.5 text-paragraph">Telefone</Label>
+                                <Input type="text" required {...register('phone')}/>
                             </div>
 
                             <div>

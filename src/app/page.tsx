@@ -23,7 +23,7 @@ export default function Home() {
           <Link href={"/driver"} className="text-text-branco font-medium">Sou Motorista - Ver Vagas</Link>
         </Button>
         <Button className="bg-azul py-7 text-paragraph rounded-4xl">
-          <Link href={"/auth/loginForm"} className="text-text-branco font-medium">Sou Agente - Área Restrita</Link>
+          <Link href={"/form/loginForm"} className="text-text-branco font-medium">Sou Agente - Área Restrita</Link>
         </Button>
       </div>
 
