@@ -7,9 +7,13 @@ import { Label } from "@/components/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from 'react-hook-form'
+import { useRouter } from "next/navigation"
 import { schema, type FormData } from "@/lib/validations/loginSchema"
+import { authClient } from "@/lib/auth-client";
 
 export default function LoginForm() {
+    const router = useRouter()
+
     const { register, handleSubmit, formState: {errors} } = useForm<FormData>({
         resolver: zodResolver(schema),
         defaultValues: {
@@ -18,8 +22,23 @@ export default function LoginForm() {
         }
     })
 
-    async function onSubmit(data: FormData) {
-        alert('etstbd')
+    async function onSubmit(formData: FormData) {
+        await authClient.signIn.email({
+            email: formData.email,
+            password: formData.password,
+            callbackURL: "/agente"
+        }, {
+            onSuccess: (ctx) => {
+                console.log("Logado", ctx)
+                router.replace("/agente")
+            },
+            onError: (ctx) => {
+                console.log("Erro ao logar", ctx)
+                if (ctx.error.code === "INVALID_EMAIL_OR_PASSWORD") {
+                    alert("Email ou senha incorretos")
+                }
+            }
+        })
     }
 
     return (
