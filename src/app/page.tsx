@@ -75,28 +75,48 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col my-10 gap-5 px-6">
-        <div className="">
-          <Image
-            src={"/image/driver.jpg"}
-            alt="carro"
-            width={400}
-            height={300}
-            priority
-            className="rounded-3xl">
-          </Image>
-        </div>
+      <div className="flex flex-col my-10 gap-6 px-6">
+        <Link href={"/driver"}>
+          <div className="relative cursor-pointer">
+            <Image
+              src={"/image/driver.jpg"}
+              alt="carro"
+              width={400}
+              height={300}
+              priority
+              className="rounded-3xl w-auto object-cover">
+            </Image>
 
-        <div className="">
-          <Image
-            src={"/image/agente.jpg"}
-            alt="carro"
-            width={400}
-            height={300}
-            priority
-            className="rounded-3xl">
-          </Image>
-        </div>
+            <div className="absolute inset-0 bg-linear-to-t from-fundo to-transparent"></div>
+
+            <div className="absolute bottom-6 left-6 flex flex-col gap-2">
+              <h2 className="text-text-branco text-4xl font-extrabold">Sou Motorista</h2>
+              <p className="text-text-branco">Ver mapa de vagas disponíveis</p>
+              <p className="text-azul font-bold">Acessar mapa agora</p>
+            </div>
+          </div>
+        </Link>
+
+        <Link href={"/form/loginForm"}>
+          <div className="relative cursor-pointer">
+            <Image
+              src={"/image/agente.jpg"}
+              alt="carro"
+              width={400}
+              height={300}
+              priority
+              className="rounded-3xl w-auto">
+            </Image>
+
+            <div className="absolute inset-0 bg-linear-to-t from-fundo to-transparent"></div>
+
+            <div className="absolute bottom-6 left-6 flex flex-col gap-2">
+              <h2 className="text-text-branco text-4xl font-extrabold">Sou Agente</h2>
+              <p className="text-text-branco">Painel de gestão e fiscalização urbana</p>
+              <p className="text-azul font-bold">Fazer login</p>
+            </div>
+          </div>
+        </Link>
       </div>
 
       <div className="min-full mt-15 bg-background-2">
