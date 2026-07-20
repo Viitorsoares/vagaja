@@ -5,6 +5,9 @@ export default function Map() {
     const mapContainerRef = useRef()
 
     useEffect(() => {
-        
+        mapRef.current = new mapboxgl.Map({
+            acessToken: '',
+            container: mapContainerRef.current
+        })
     })
 }
