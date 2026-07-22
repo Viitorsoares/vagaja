@@ -1,3 +1,4 @@
+import Map from "@/components/map";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Search } from 'lucide-react';
@@ -24,6 +25,10 @@ export default function Page() {
                     <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-orange" >Limitado</ Badge>
                     <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-red">Lotado</ Badge>
                 </div>
+            </div>
+
+            <div>
+                <Map />
             </div>
 
         </main>
