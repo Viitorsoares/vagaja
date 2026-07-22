@@ -18,7 +18,7 @@ export default function Page() {
                 </div>
             </div> 
 
-            <div className="mt-8 px-6">
+            <div className="my-6 px-6">
                 <div className="flex gap-7">
                     <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-azul">Todos</ Badge>
                     <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-green">Livre</ Badge>
@@ -27,7 +27,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <div>
+            <div className="px-8">
                 <Map />
             </div>
 

@@ -5,15 +5,15 @@ import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 export default function Map() {
-    const mapRef = useRef<mapboxgl.Map | null>(null)
-    const mapContainerRef = useRef<HTMLDivElement | null>(null)
+    const mapRef = useRef<mapboxgl.Map>()
+    const mapContainerRef = useRef<HTMLDivElement>()
 
     useEffect(() => {
         mapRef.current = new mapboxgl.Map({
             accessToken: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
             container: mapContainerRef.current,
             center: [-71.06776, 42.35816],
-            zoom: 9
+            zoom: 15
         })
 
         return () => {
@@ -22,6 +22,6 @@ export default function Map() {
     }, [])
 
     return (
-        <div id='map-container' ref={mapContainerRef}className="w-full h-screen"></div>
+        <div id='map-container' ref={mapContainerRef} className="w-full h-130 rounded-2xl"></div>
     )
 }
