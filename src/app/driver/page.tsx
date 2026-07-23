@@ -27,7 +27,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className="px-8">
+            <div className="px-6">
                 <Map />
             </div>
 

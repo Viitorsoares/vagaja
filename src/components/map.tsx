@@ -19,9 +19,10 @@ export default function Map() {
         return () => {
             mapRef.current.remove()
         }
+
     }, [])
 
     return (
-        <div id='map-container' ref={mapContainerRef} className="w-full h-130 rounded-2xl"></div>
+        <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
     )
 }
