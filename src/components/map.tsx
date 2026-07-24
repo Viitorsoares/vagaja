@@ -16,6 +16,10 @@ export default function Map() {
             zoom: 15
         })
 
+        new mapboxgl.Marker()
+            .setLngLat([-71.06776, 42.35816])
+            .addTo(mapRef.current);
+
         return () => {
             mapRef.current.remove()
         }

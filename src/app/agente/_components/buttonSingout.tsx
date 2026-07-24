@@ -12,7 +12,7 @@ export default function ButtonSignOut() {
         await authClient.signOut({
             fetchOptions: {
                 onSuccess: () => {
-                    router.replace("/")
+                    router.replace("././form/loginForm")
                 }
             }
         })
