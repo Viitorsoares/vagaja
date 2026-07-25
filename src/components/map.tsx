@@ -3,6 +3,9 @@
 import { useEffect, useRef } from "react";
 import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import validateCoordinates from "@/lib/validations/locationValidation";
+
+
 
 export default function Map() {
     const mapRef = useRef<mapboxgl.Map>()
@@ -19,13 +22,28 @@ export default function Map() {
         map.addInteraction('map-click', {
             type: 'click',
             handler: (e) => {
+                
                 console.log(`Clicked at: ${e.lngLat.lng}, ${e.lngLat.lat}`);
-            }
-        });
 
-        new mapboxgl.Marker()
-            .setLngLat([-71.06776, 42.35816])
-            .addTo(mapRef.current);
+                const longitude = e.lngLat.lng;
+                const latitude = e.lngLat.lat;
+
+                const validation = validateCoordinates({
+                    longitude,
+                    latitude
+                })
+                
+                if (!validation.valid) { 
+                    return alert(validation.message);
+                }
+
+                console.log(`${typeof validation.valid}`)
+
+                new mapboxgl.Marker()
+                    .setLngLat([longitude, latitude])
+                    .addTo(mapRef.current);
+            }  
+        });
 
         return () => {
             mapRef.current.remove()

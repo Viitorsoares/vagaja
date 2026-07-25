@@ -3,10 +3,10 @@ type location = {
     latitude: number;
 }
 
-function validateCoordinates(location: location) {
-    const {longitude, latitude } = location
+export default function validateCoordinates(location: location) {
+    const {longitude, latitude} = location
 
-    if (longitude === undefined || latitude === undefined ) {     
+    if (longitude === undefined || latitude === undefined) {     
         return {
             valid: false,
             message: "Localização não encontrada"
@@ -27,7 +27,7 @@ function validateCoordinates(location: location) {
         }
     }
 
-    if (typeof longitude || typeof latitude !== "number") {
+    if (typeof longitude !== "number" || typeof latitude !== "number") {
         return {
             valid: false,
             message: "Coordenadas inválidas"
