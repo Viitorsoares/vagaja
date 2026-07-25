@@ -13,17 +13,17 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full px-6 pt-4 flex justify-between bg-fundo">
+    <header className="w-full px-6 py-6 flex justify-between bg-fundo sticky top-0 z-50 shadow-md ">
       <div className="flex gap-1.5 cursor-pointer">
-        <div className="w-7 h-7 flex items-center justify-center rounded-full bg-azul">
-          <MapPinIcon className="w-4 text-text-branco"></MapPinIcon>
+        <div className="w-9 h-9 flex items-center justify-center rounded-full bg-azul">
+          <MapPinIcon className="w-7 text-text-branco"></MapPinIcon>
         </div>
-        <p className="text-text-branco text-xl font-extrabold">vagajá</p>
+        <p className="text-text-branco text-3xl font-bold">vagajá</p>
       </div>
 
       <div>
         {open && (
-          <nav className="absolute bg-fundo px-6 min-h-[33vh] left-0 top-[5%] w-full">
+          <nav className="absolute bg-fundo px-6 min-h-[33vh] left-0 top-[5%] w-full shadow-2xl">
             <ul className="flex flex-col gap-4 mt-6 rounded-3xl font-medium text-text-branco md:flex-row">
               <Link href={"/"}>
                 <span className="btn-menu">
@@ -57,7 +57,7 @@ export default function Header() {
       </div>
 
       <div>
-        <Bars3Icon onClick={onToggleMenu} className="w-8 text-text-branco cursor-pointer md:hidden"></Bars3Icon>
+        <Bars3Icon onClick={onToggleMenu} className="w-9 text-text-branco cursor-pointer md:hidden"></Bars3Icon>
       </div>
     </header>
   )

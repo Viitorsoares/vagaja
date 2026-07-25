@@ -83,8 +83,8 @@ export default function RegisterForm() {
                         <Button type="submit" className="bg-azul w-full mt-5 text-paragraph font-bold" disabled={isSubmitting}>
                             {isSubmitting ? (
                                 <>
-                                <Loader2 className="animate-spin"/>
-                                Criando
+                                    <Loader2 className="animate-spin"/>
+                                    Criando
                                 </>
                             ) : (
                                 "Criar conta de agente"
