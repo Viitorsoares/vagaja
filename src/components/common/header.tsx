@@ -1,7 +1,7 @@
 "use client"
 
 import { MapPinIcon, Bars3Icon } from "@heroicons/react/24/solid";
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, X } from 'lucide-react';
 import Link from "next/link";
 import { useState } from "react";
 
@@ -23,7 +23,11 @@ export default function Header() {
 
       <div>
         {open && (
-          <nav className="absolute bg-fundo px-6 min-h-[33vh] left-0 top-[5%] w-full shadow-2xl">
+          <nav className="absolute bg-fundo px-6 min-h-[36vh] left-0 top-[0%] w-full shadow-2xl">
+            <div className="w-full flex justify-end mb-10 mt-6">
+              <X onClick={onToggleMenu} className="w-9 h-9 text-text-branco cursor-pointer "/>
+            </div>
+
             <ul className="flex flex-col gap-4 mt-6 rounded-3xl font-medium text-text-branco md:flex-row">
               <Link href={"/"}>
                 <span className="btn-menu">
