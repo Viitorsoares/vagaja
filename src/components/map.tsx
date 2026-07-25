@@ -9,12 +9,19 @@ export default function Map() {
     const mapContainerRef = useRef<HTMLDivElement>()
 
     useEffect(() => {
-        mapRef.current = new mapboxgl.Map({
+        const map = (mapRef.current = new mapboxgl.Map({
             accessToken: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
             container: mapContainerRef.current,
-            center: [-71.06776, 42.35816],
-            zoom: 15
-        })
+            center: [-51.07496185155131, -21.688074138235734],
+            zoom: 14
+        }))
+        
+        map.addInteraction('map-click', {
+            type: 'click',
+            handler: (e) => {
+                console.log(`Clicked at: ${e.lngLat.lng}, ${e.lngLat.lat}`);
+            }
+        });
 
         new mapboxgl.Marker()
             .setLngLat([-71.06776, 42.35816])
