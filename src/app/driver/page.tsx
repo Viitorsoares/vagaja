@@ -1,3 +1,4 @@
+
 import Map from "@/components/map";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -16,21 +17,11 @@ export default function Page() {
                     <Card className="py-2 px-3 rounded-xl flex-row bg-azul text-text-branco items-center"> <span>20</span> Vagas livres </Card>
                     <Card className="py-2 px-3 flex flex-row gap-4 rounded-xl text-paragraph items-center"> <Search className="w-5 h-5 "/> Buscar endereço </Card>
                 </div>
-            </div> 
-
-            <div className="my-6 px-6">
-                <div className="flex gap-7">
-                    <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-azul">Todos</ Badge>
-                    <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-green">Livre</ Badge>
-                    <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-orange" >Limitado</ Badge>
-                    <Badge className="p-4 rounded-xl text-footer font-semibold text-text-branco bg-red">Lotado</ Badge>
-                </div>
             </div>
 
-            <div className="px-6">
+            <div className="h-155 px-6 py-5">
                 <Map />
             </div>
-
         </main>
     )
 }

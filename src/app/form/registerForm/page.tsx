@@ -10,11 +10,12 @@ import { useRouter } from "next/navigation";
 import { useForm } from 'react-hook-form'
 import { schema, type FormData } from "@/lib/validations/registerSchema"
 import { authClient } from '@/lib/auth-client'
+import { Loader2 } from 'lucide-react';
 
 export default function RegisterForm() {
     const router = useRouter()
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
         resolver: zodResolver(schema),
         defaultValues: {
             name: "",
@@ -79,7 +80,16 @@ export default function RegisterForm() {
                             </div>
                         </div>
 
-                        <Button type="submit" className="bg-azul w-full mt-5 text-paragraph">Criar conta de agente</Button>
+                        <Button type="submit" className="bg-azul w-full mt-5 text-paragraph font-bold" disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <>
+                                <Loader2 className="animate-spin"/>
+                                Criando
+                                </>
+                            ) : (
+                                "Criar conta de agente"
+                            )}  
+                        </Button>
                     </form>
                 </CardContent>
                 <CardFooter>

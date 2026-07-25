@@ -10,11 +10,12 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from "next/navigation"
 import { schema, type FormData } from "@/lib/validations/loginSchema"
 import { authClient } from "@/lib/auth-client";
+import { Loader2 } from 'lucide-react';
 
 export default function LoginForm() {
     const router = useRouter()
 
-    const { register, handleSubmit, formState: {errors} } = useForm<FormData>({
+    const { register, handleSubmit, formState: {errors, isSubmitting} } = useForm<FormData>({
         resolver: zodResolver(schema),
         defaultValues: {
             email: "",
@@ -66,7 +67,16 @@ export default function LoginForm() {
                             </div>
                         </div>
 
-                        <Button type="submit" className="bg-azul w-full mt-5 text-paragraph">Entrar</Button>
+                        <Button type="submit" className="bg-azul w-full mt-5 text-paragraph" disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="animate-spin"/>
+                                    Entrando...
+                                </>
+                            ) : (
+                                "Entrar"
+                            )}
+                        </Button>
                     </form>
                 </CardContent>
                 <CardFooter>
