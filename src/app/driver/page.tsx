@@ -1,5 +1,4 @@
 import LocationMap from "@/components/locationMap";
-import Map from "@/components/map";
 import { Card } from "@/components/ui/card";
 import { Search } from 'lucide-react';
 

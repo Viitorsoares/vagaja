@@ -12,12 +12,17 @@ export default async function saveLocation(longitude: number, latitude: number) 
    if (!session?.user) {
     throw new Error("Usuário não autenticado")
    }
-
-   await prisma.location.create({
-    data: {
-        longitude,
-        latitude,
-        userId: session.user.id
-    }
-   })
+   
+   try {
+    await prisma.location.create({
+        data: {
+            longitude,
+            latitude,
+            userId: session.user.id
+        }
+    })
+   } catch (error) {
+        throw new Error("Não foi possivel salvar a localização")
+   }
+   
 }
