@@ -1,4 +1,4 @@
-type location = {
+export type location = {
     longitude: number;
     latitude: number;
 }

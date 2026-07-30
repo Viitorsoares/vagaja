@@ -1,6 +1,5 @@
-
+import LocationMap from "@/components/locationMap";
 import Map from "@/components/map";
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Search } from 'lucide-react';
 
@@ -20,7 +19,7 @@ export default function Page() {
             </div>
 
             <div className="h-155 px-6 py-5">
-                <Map />
+               <LocationMap />
             </div>
         </main>
     )

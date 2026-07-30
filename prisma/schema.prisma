@@ -24,9 +24,9 @@ model User {
 }
 
 model location {
-  id        String  @id
-  longitude Decimal @db.Decimal(20, 18)
-  latitude  Decimal @db.Decimal(20, 18)
+  id        String  @id @default(cuid())
+  longitude Decimal @db.Decimal(20, 17)
+  latitude  Decimal @db.Decimal(20, 17)
   userId    String
   user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -42,7 +42,7 @@ model Session {
   updatedAt DateTime @updatedAt
   ipAddress String?
   userAgent String?
-  userId    String
+  userId    String 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])

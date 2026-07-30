@@ -3,55 +3,43 @@
 import { useEffect, useRef } from "react";
 import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import validateCoordinates from "@/lib/validations/locationValidation";
 
+type MapProps = {
+    coordinatesChange: (longitude: number, latitude: number) => void
+}
 
-
-export default function Map() {
-    const mapRef = useRef<mapboxgl.Map>()
-    const mapContainerRef = useRef<HTMLDivElement>()
+export default function Map({ coordinatesChange }: MapProps) {
+    const mapRef = useRef<mapboxgl.Map | null>(null)
+    const mapContainerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         const map = (mapRef.current = new mapboxgl.Map({
             accessToken: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
-            container: mapContainerRef.current,
+            container: mapContainerRef.current!,
             center: [-51.07496185155131, -21.688074138235734],
             zoom: 14
         }))
-        
-        map.addInteraction('map-click', {
-            type: 'click',
-            handler: (e) => {
-                
-                console.log(`Clicked at: ${e.lngLat.lng}, ${e.lngLat.lat}`);
 
-                const longitude = e.lngLat.lng;
-                const latitude = e.lngLat.lat;
+        const handleClick = (e: mapboxgl.MapMouseEvent) => {
+            const { lng, lat } = e.lngLat
 
-                const validation = validateCoordinates({
-                    longitude,
-                    latitude
-                })
-                
-                if (!validation.valid) { 
-                    return alert(validation.message);
-                }
+            new mapboxgl.Marker()
+                .setLngLat([lng, lat])
+                .addTo(map)
 
-                console.log(`${typeof validation.valid}`)
-
-                new mapboxgl.Marker()
-                    .setLngLat([longitude, latitude])
-                    .addTo(mapRef.current);
-            }  
-        });
-
-        return () => {
-            mapRef.current.remove()
+            coordinatesChange(lng, lat)
         }
 
-    }, [])
+    
+        map.on('click', handleClick)
 
-    return (
-        <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
-    )
-}
+        return () => {
+            map.remove()
+        }
+
+    }, [coordinatesChange])
+
+        return (
+            <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
+        )
+    }

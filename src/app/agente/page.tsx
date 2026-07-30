@@ -5,6 +5,7 @@ import ButtonSignOut from "./_components/buttonSingout"
 import { Card } from "@/components/ui/card"
 import { User, CarFront } from 'lucide-react';
 import Map from "@/components/map"
+import LocationMap from "@/components/locationMap"
 
 export default async function Dashboard() {
     const session = await auth.api.getSession({
@@ -44,7 +45,7 @@ export default async function Dashboard() {
             </div>
 
             <div className="h-150 px-6 py-5 bg-background-2">
-                <Map />
+                <LocationMap />
             </div>
         </main>
     )
