@@ -4,12 +4,23 @@ import Image from "next/image";
 import { Globe, Zap, ChartSpline, Shield, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import StatisticCard from "./_components/statisticCard";
+import FeatureCard from "./_components/featureCard";
 
 const statistic = [
   { title: "12+", description: "Cidades atendidas" },
   { title: "3.4k", description: "Vagas monitoradas" },
   { title: "840", description: "Agentes cadastrados" },
   { title: "98%", description: "Uptime de sistema" }
+]
+
+
+
+const feature = [
+  { icon: Globe, title: "Mapa interativo", description: "Interface de mapa fluída com marcadores e zoom suave" },
+  { icon: Zap, title: "Acesso instantâneo", description: "Sem cadastro para motoristas. Abra e use em poucos segundos" },
+  { icon: ChartSpline, title: "Painel exclusivo", description: "Ferramentas de gestão, filtros por zona e relatórios para agentes." },
+  { icon: Shield, title: "Multi-agente e zonas", description: "Gerencie equipes de fiscalização com divisão por zonas geográficas." },
+  { icon: Users, title: "Relatórios e histórico", description: "Análise de ocupação, horários de pico e tendências por região." },
 ]
 
 export default function Home() {
@@ -119,55 +130,9 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 mt-8">
-            <Card className="bg-azul w-full flex flex-row items-center gap-3 p-6 rounded-xl text-badge whitespace-normal">
-              <div>
-                <Globe className="w-11 h-11 text-text-branco" />
-              </div>
-              <div>
-                <p className="text-badge-title text-text-branco font-bold">Mapa interativo</p>
-                <p className="text-text-branco text-paragraph">Interface de mapa fluída com marcadores e zoom suave.</p>
-              </div>
-            </Card>
-
-            <Card className="bg-azul w-full flex flex-row items-center gap-3 p-6 rounded-xl text-badge whitespace-normal">
-              <div>
-                <Zap className="w-11 h-11 text-text-branco" />
-              </div>
-              <div>
-                <p className="text-badge-title text-text-branco font-bold">Acesso instantâneo</p>
-                <p className="text-text-branco text-paragraph">Sem cadastro para motoristas. Abra e use em poucos segundos.</p>
-              </div>
-            </Card>
-
-            <Card className="bg-azul w-full flex flex-row items-center gap-3 p-6 rounded-xl text-badge whitespace-normal">
-              <div>
-                <ChartSpline className="w-11 h-11 text-text-branco" />
-              </div>
-              <div>
-                <p className="text-badge-title text-text-branco font-bold">Painel exclusivo</p>
-                <p className="text-text-branco text-paragraph">Ferramentas de gestão, filtros por zona e relatórios para agentes.</p>
-              </div>
-            </Card>
-
-            <Card className="bg-azul w-full flex flex-row items-center gap-3 p-6 rounded-xl text-badge whitespace-normal">
-              <div>
-                <Shield className="w-11 h-11 text-text-branco" />
-              </div>
-              <div>
-                <p className="text-badge-title text-text-branco font-bold">Multi-agente e zonas</p>
-                <p className="text-text-branco text-paragraph">Gerencie equipes de fiscalização com divisão por zonas geográficas.</p>
-              </div>
-            </Card>
-
-            <Card className="bg-azul w-full flex flex-row items-center gap-3 p-6 rounded-xl text-badge whitespace-normal">
-              <div>
-                <Users className="w-11 h-11 text-text-branco" />
-              </div>
-              <div>
-                <p className="text-badge-title text-text-branco font-bold">Relatórios e histórico</p>
-                <p className="text-text-branco text-paragraph">Análise de ocupação, horários de pico e tendências por região.</p>
-              </div>
-            </Card>
+            {feature.map((feat, i) => (
+              <FeatureCard key={i} icon={feat.icon} title={feat.title} description={feat.description} />
+            ))}
           </div>
         </div>
       </div>
