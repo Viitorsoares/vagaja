@@ -25,8 +25,8 @@ model User {
 
 model location {
   id        String  @id @default(cuid())
-  longitude Decimal @db.Decimal(20, 17)
-  latitude  Decimal @db.Decimal(20, 17)
+  longitude Float 
+  latitude  Float
   userId    String
   user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 

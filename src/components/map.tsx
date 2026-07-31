@@ -4,11 +4,17 @@ import { useEffect, useRef } from "react";
 import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-type MapProps = {
-    coordinatesChange: (longitude: number, latitude: number) => void
+type location = {
+    longitude: number
+    latitude: number
 }
 
-export default function Map({ coordinatesChange }: MapProps) {
+type MapProps = {
+    coordinatesChange: (longitude: number, latitude: number) => void
+    locations: location[]
+}
+
+export default function Map({ coordinatesChange, locations = [] }: MapProps) {
     const mapRef = useRef<mapboxgl.Map | null>(null)
     const mapContainerRef = useRef<HTMLDivElement | null>(null)
 
@@ -19,6 +25,14 @@ export default function Map({ coordinatesChange }: MapProps) {
             center: [-51.07496185155131, -21.688074138235734],
             zoom: 14
         }))
+
+        map.on('load', () => {
+            locations.forEach((loc) => {
+                new mapboxgl.Marker({ color: '#3b82f6'})
+                .setLngLat([loc.longitude, loc.latitude])
+                .addTo(map)
+            })
+        })
 
         const handleClick = (e: mapboxgl.MapMouseEvent) => {
             const { lng, lat } = e.lngLat
@@ -37,7 +51,7 @@ export default function Map({ coordinatesChange }: MapProps) {
             map.remove()
         }
 
-    }, [coordinatesChange])
+    }, [coordinatesChange, locations])
 
         return (
             <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
