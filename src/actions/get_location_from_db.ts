@@ -8,5 +8,6 @@ export default async function getLocation() {
         }
     })
 
+    if (!locations) return
     return locations
 }
