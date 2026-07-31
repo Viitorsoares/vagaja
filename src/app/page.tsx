@@ -3,6 +3,14 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { Globe, Zap, ChartSpline, Shield, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import StatisticCards from "./_components/statisticCard";
+
+const statistic = [
+  { subtitle: "12+", paragraph: "Cidades atendidas" },
+  { subtitle: "3.4k", paragraph: "Vagas monitoradas" },
+  { subtitle: "840", paragraph: "Agentes cadastrados" },
+  { subtitle: "98%", paragraph: "Uptime de sistema" }
+]
 
 export default function Home() {
   return (
@@ -28,25 +36,9 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 mt-15 px-6">
-        <Card className="flex flex-col text-center p-4 rounded-xl bg-azul">
-          <p className="text-2rem font-extrabold text-text-branco">12+</p>
-          <p className="text-paragraph text-text-branco">Cidades atendidas</p>
-        </Card>
-
-        <Card className="flex flex-col text-center p-4 rounded-xl bg-azul">
-          <p className="text-2rem font-extrabold text-text-branco">3.4k</p>
-          <p className="text-paragraph text-text-branco">Vagas monitoradas</p>
-        </Card>
-
-        <Card className="flex flex-col text-center rounded-xl bg-azul">
-          <p className="text-2rem font-extrabold text-text-branco">840</p>
-          <p className="text-paragraph text-text-branco">Agentes cadastrados</p>
-        </Card>
-
-        <Card className="flex flex-col text-center p-4 rounded-xl bg-azul">
-          <p className="text-2rem font-extrabold text-text-branco">98%</p>
-          <p className="text-paragraph text-text-branco">Uptime de sistema</p>
-        </Card>
+        {statistic.map((stat, i) => (
+          <StatisticCards key={i} subtitle={stat.subtitle} paragraph={stat.paragraph} />
+        ))}
       </div>
 
       <div className="min-full mt-15 bg-background-2">
@@ -105,7 +97,7 @@ export default function Home() {
               width={400}
               height={300}
               priority
-              className="rounded-3xl w-auto">
+              className="rounded-3xl w-auto object-cover">
             </Image>
 
             <div className="absolute inset-0 bg-linear-to-t from-fundo to-transparent"></div>

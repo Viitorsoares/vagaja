@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import ButtonSignOut from "./_components/buttonSingout"
 import { Card } from "@/components/ui/card"
 import { User, CarFront } from 'lucide-react';
-import LocationMap from "@/components/add_location_map"
+import LocationMap from "@/components/location_map"
 import getLocation from "@/actions/get_location_from_db"
 
 export default async function Dashboard() {

@@ -47,3 +47,7 @@ export default function LocationMap({ initialLocations = []}: LocationProps) {
         </div>
     )
 }
+
+
+
+
