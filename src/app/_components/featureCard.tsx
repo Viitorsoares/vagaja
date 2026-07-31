@@ -7,7 +7,7 @@ type FeatureCard = {
     description: string
 }
 
-export default function FeatureCard({ icon: Icon, title, description }: FeatureCard) {
+export default function FeatureCard({icon: Icon, title, description}: FeatureCard) {
     return (
         <Card className="bg-azul w-full flex flex-row items-center gap-3 p-6 rounded-xl text-badge whitespace-normal">
             <div>
