@@ -3,13 +3,13 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { Globe, Zap, ChartSpline, Shield, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import StatisticCards from "./_components/statisticCard";
+import StatisticCard from "./_components/statisticCard";
 
 const statistic = [
-  { subtitle: "12+", paragraph: "Cidades atendidas" },
-  { subtitle: "3.4k", paragraph: "Vagas monitoradas" },
-  { subtitle: "840", paragraph: "Agentes cadastrados" },
-  { subtitle: "98%", paragraph: "Uptime de sistema" }
+  { title: "12+", description: "Cidades atendidas" },
+  { title: "3.4k", description: "Vagas monitoradas" },
+  { title: "840", description: "Agentes cadastrados" },
+  { title: "98%", description: "Uptime de sistema" }
 ]
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
 
       <div className="grid grid-cols-2 gap-4 mt-15 px-6">
         {statistic.map((stat, i) => (
-          <StatisticCards key={i} subtitle={stat.subtitle} paragraph={stat.paragraph} />
+          <StatisticCard key={i} title={stat.title} description={stat.description} />
         ))}
       </div>
 
