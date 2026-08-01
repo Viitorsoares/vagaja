@@ -38,7 +38,7 @@ export default function LocationMap({ initialLocations = []}: LocationProps) {
             </div>
 
             {coordinates && (
-                <p>Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
+                <p className="text-text-branco">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
             )}
 
             <button className="text-gray-text" onClick={handleSave} disabled={!coordinates || isPending}>

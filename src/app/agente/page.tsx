@@ -39,7 +39,7 @@ export default async function Dashboard() {
                 <div className="flex flex-row items-center gap-5">
                     <Card className="flex flex-row items-center px-3 py-1.5 rounded-2xl bg-azul text-text-branco">
                         <CarFront className="w-7 h-7" />
-                        <p className="text-paragraph "><strong>126</strong> vagas</p>
+                        <p className="text-paragraph "><strong>{locations?.length}</strong> vagas</p>
                     </Card>
 
                     <ButtonSignOut />
