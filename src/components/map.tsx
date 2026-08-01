@@ -40,8 +40,6 @@ export default function Map({ coordinatesChange, locations = [] }: MapProps) {
             new mapboxgl.Marker()
                 .setLngLat([lng, lat])
                 .addTo(map)
-
-            coordinatesChange(lng, lat)
         }
 
     

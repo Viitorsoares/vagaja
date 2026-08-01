@@ -8,6 +8,7 @@ import LocationMap from "@/components/location_map"
 import getLocation from "@/actions/get_location_from_db"
 
 export default async function Dashboard() {
+    
     const session = await auth.api.getSession({
         headers: await headers()
     })
