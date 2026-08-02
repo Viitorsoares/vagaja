@@ -6,9 +6,11 @@ import { Card } from "@/components/ui/card"
 import { User, CarFront } from 'lucide-react';
 import LocationMap from "@/components/location_map"
 import getLocation from "@/actions/get_location_from_db"
+import ListOfVacancies from "./list_of_vacancies"
 
 export default async function Dashboard() {
-    
+    const locations = await getLocation()
+
     const session = await auth.api.getSession({
         headers: await headers()
     })
@@ -16,9 +18,7 @@ export default async function Dashboard() {
     if (!session) {
         redirect("/")
     }
-
-    const locations = await getLocation()
-
+    
     return (
         <main className="w-full h-full">
             <div className="flex flex-col gap-7 mt-3 pt-8 pb-5 px-6 ">
@@ -47,8 +47,13 @@ export default async function Dashboard() {
                 </div>
             </div>
 
-            <div className="h-150 px-6 py-5 bg-background-2">
+            <div className="h-145 px-6 pt-5 bg-background-2">
                 <LocationMap initialLocations={locations} />
+            </div>
+
+            <div className="text-text-branco px-6 text-center">
+                <h2 className="py-2">Vagas Ocupadas</h2>
+                <ListOfVacancies vacancies={locations ?? []}/>
             </div>
         </main>
     )
