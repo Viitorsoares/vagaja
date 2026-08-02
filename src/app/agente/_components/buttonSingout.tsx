@@ -5,7 +5,11 @@ import { authClient } from "@/lib/auth-client"
 import { useRouter } from "next/navigation"
 import { LogOut } from 'lucide-react';
 
-export default function ButtonSignOut() {
+type BtnPropy = {
+    button: string
+}
+
+export default function ButtonSignOut({ button }: BtnPropy) {
     const router = useRouter()
 
     async function signOut(){
@@ -21,7 +25,7 @@ export default function ButtonSignOut() {
     return (
         <Button onClick={signOut} className="bg-fundo text-red">
             <LogOut />
-            Sair
+            {button}
         </Button>
     )
 }

@@ -38,12 +38,12 @@ export default async function Dashboard() {
                 </div>
 
                 <div className="flex flex-row items-center gap-5">
-                    <Card className="flex flex-row items-center px-3 py-1.5 rounded-2xl bg-azul text-text-branco">
+                    <Card className="flex flex-row items-center px-3 py-1.5 rounded-xl bg-azul text-text-branco">
                         <CarFront className="w-7 h-7" />
                         <p className="text-paragraph "><strong>{locations?.length}</strong> vagas</p>
                     </Card>
 
-                    <ButtonSignOut />
+                    <ButtonSignOut button={"Sair"} />
                 </div>
             </div>
 
@@ -51,7 +51,7 @@ export default async function Dashboard() {
                 <LocationMap initialLocations={locations} />
             </div>
 
-            <div className="text-text-branco px-6 text-center mt-4">
+            <div className="text-text-branco px-6 text-center mt-6">
                 <ListOfVacancies vacancies={locations ?? []}/>
             </div>
         </main>

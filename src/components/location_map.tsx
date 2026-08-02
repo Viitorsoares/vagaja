@@ -31,11 +31,11 @@ export default function LocationMap({ initialLocations = [] }: LocationProps) {
     }
 
     useEffect(() => {
-        handleSave   
+        handleSave
     }, [])
 
     return (
-        <div className="w-full h-full flex flex-col gap-4">
+        <div className="w-full h-full flex flex-col gap-3">
             <div className="h-[500px]">
                 <Map
                     coordinatesChange={handleCoordinates}
@@ -43,13 +43,20 @@ export default function LocationMap({ initialLocations = [] }: LocationProps) {
                 />
             </div>
 
-            {coordinates && (
-                <p className="text-text-branco">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
-            )}
+            <div>
+                {coordinates && (
+                    <p className="text-text-branco">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
+                )}
+            </div>
 
-            <button className="text-gray-text mb-6 mt-3" onClick={handleSave} disabled={!coordinates || isPending}>
-                {isPending ? "Salvando..." : "Salvar localização"}
-            </button>
+            <div className="flex flex-row justify-around mb-6">
+                <button className="text-text-branco bg-azul font-semibold px-4 py-2 rounded-4xl cursor-pointer" onClick={handleSave} disabled={!coordinates || isPending}>
+                    {isPending ? "Salvando..." : "Salvar localização"}
+                </button>
+                <button className="text-text-branco bg-red font-semibold px-4 py-2 rounded-4xl cursor-pointer" disabled={!coordinates || isPending}>
+                    {isPending ? "Cancelando..." : "Cancelar"}
+                </button>
+            </div>
         </div>
     )
 }

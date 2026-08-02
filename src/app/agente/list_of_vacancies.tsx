@@ -17,10 +17,7 @@ export default function ListOfVacancies({ vacancies }: { vacancies: location[] }
         if (!id) return
 
         setItems(prev => prev.filter(item => item.id !== id))
-
         await deleteLocation(id)
-
-        
     }
 
     return (
