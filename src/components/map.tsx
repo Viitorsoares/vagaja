@@ -31,6 +31,7 @@ export default function Map({ coordinatesChange, locations = [] }: MapProps) {
                 new mapboxgl.Marker({ color: '#3b82f6'})
                 .setLngLat([loc.longitude, loc.latitude])
                 .addTo(map)
+                console.log(locations)
             })
         })
 
@@ -40,6 +41,8 @@ export default function Map({ coordinatesChange, locations = [] }: MapProps) {
             new mapboxgl.Marker()
                 .setLngLat([lng, lat])
                 .addTo(map)
+
+            coordinatesChange(lng, lat) 
         }
 
     

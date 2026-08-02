@@ -26,6 +26,8 @@ export default function LocationMap({ initialLocations = []}: LocationProps) {
         startTransition(async () => {
             await saveLocation(coordinates.longitude, coordinates.latitude)
         })
+
+        console.log(coordinates)
     }
 
     return (
@@ -41,7 +43,7 @@ export default function LocationMap({ initialLocations = []}: LocationProps) {
                 <p className="text-text-branco">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
             )}
 
-            <button className="text-gray-text" onClick={handleSave} disabled={!coordinates || isPending}>
+            <button className="text-gray-text mb-4" onClick={handleSave} disabled={!coordinates || isPending}>
                 {isPending ? "Salvando..." : "Salvar localização"}
             </button>
         </div>

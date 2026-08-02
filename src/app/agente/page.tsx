@@ -51,8 +51,7 @@ export default async function Dashboard() {
                 <LocationMap initialLocations={locations} />
             </div>
 
-            <div className="text-text-branco px-6 text-center">
-                <h2 className="py-2">Vagas Ocupadas</h2>
+            <div className="text-text-branco px-6 text-center mt-4">
                 <ListOfVacancies vacancies={locations ?? []}/>
             </div>
         </main>
