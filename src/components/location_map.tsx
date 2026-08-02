@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import Map from "./map"
 import saveLocation from "@/actions/add_location_from_db"
 
@@ -13,16 +13,16 @@ type LocationProps = {
     initialLocations: Location[]
 }
 
-export default function LocationMap({ initialLocations = []}: LocationProps) {
-    const [coordinates, setCoordinates] = useState<{ longitude: number, latitude: number} | null>(null)
+export default function LocationMap({ initialLocations = [] }: LocationProps) {
+    const [coordinates, setCoordinates] = useState<{ longitude: number, latitude: number } | null>(null)
     const [isPending, startTransition] = useTransition()
 
     function handleCoordinates(longitude: number, latitude: number) {
-        setCoordinates({longitude, latitude})
+        setCoordinates({ longitude, latitude })
     }
 
     function handleSave() {
-        if (!coordinates) return 
+        if (!coordinates) return
         startTransition(async () => {
             await saveLocation(coordinates.longitude, coordinates.latitude)
         })
@@ -30,10 +30,14 @@ export default function LocationMap({ initialLocations = []}: LocationProps) {
         console.log(coordinates)
     }
 
+    useEffect(() => {
+        handleSave   
+    }, [])
+
     return (
-         <div className="w-full h-full flex flex-col gap-4">
+        <div className="w-full h-full flex flex-col gap-4">
             <div className="h-[500px]">
-                <Map 
+                <Map
                     coordinatesChange={handleCoordinates}
                     locations={initialLocations}
                 />
@@ -43,7 +47,7 @@ export default function LocationMap({ initialLocations = []}: LocationProps) {
                 <p className="text-text-branco">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
             )}
 
-            <button className="text-gray-text mb-4" onClick={handleSave} disabled={!coordinates || isPending}>
+            <button className="text-gray-text mb-6 mt-3" onClick={handleSave} disabled={!coordinates || isPending}>
                 {isPending ? "Salvando..." : "Salvar localização"}
             </button>
         </div>
