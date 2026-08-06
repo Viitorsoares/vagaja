@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, } from "react";
+import { useEffect, useRef, useState, } from "react";
 import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
@@ -14,9 +14,14 @@ type MapProps = {
     locations: location[]
 }
 
+const meu_Token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+
 export default function Map({ coordinatesChange, locations = [] }: MapProps) {
     const mapRef = useRef<mapboxgl.Map | null>(null)
     const mapContainerRef = useRef<HTMLDivElement | null>(null)
+
+    const [address, setAddress] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         const map = (mapRef.current = new mapboxgl.Map({
@@ -54,7 +59,29 @@ export default function Map({ coordinatesChange, locations = [] }: MapProps) {
 
     }, [coordinatesChange, locations])
 
-        return (
-            <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
-        )
+    async function lookUpAddress({longitude, latitude}: location) {
+        setLoading(true)
+        try {
+            const url = `https://api.mapbox.com/search/geocode/v6/reverse?longitude=${longitude}&latitude=${latitude}&access_token=${meu_Token}`
+            const response = await fetch(url)
+            const data = await response.json()
+
+            const feature = data.features?.[0]
+            setAddress(
+                feature ?
+                {
+                    fullAddress: feature.properties.full.address,
+                    name: feature.properties.name,
+                    placeFormatted: feature.properties.place.formatted,
+                }
+                : null
+            )
+        } catch {
+
+        }    
     }
+
+    return (
+        <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
+    )
+}

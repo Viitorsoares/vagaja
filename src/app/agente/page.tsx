@@ -32,13 +32,13 @@ export default async function Dashboard() {
 
                         <div className="flex flex-row gap-10 text-paragraph">
                             <h3 className="text-gray-text">{session.user.name}</h3>
-                            <h3 className="text-green">Online</h3>
+                            <h3 className="text-green">Online{}</h3>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex flex-row items-center gap-5">
-                    <Card className="flex flex-row items-center px-3 py-1.5 rounded-xl bg-azul text-text-branco">
+                    <Card className="flex flex-row items-center px-3 py-1.5 rounded-xl border-2 bg-fundo border-text-branco0 text-text-branco">
                         <CarFront className="w-7 h-7" />
                         <p className="text-paragraph "><strong>{locations?.length}</strong> vagas</p>
                     </Card>
