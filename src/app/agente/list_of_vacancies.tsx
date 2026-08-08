@@ -22,7 +22,7 @@ export default function ListOfVacancies({ vacancies }: { vacancies: location[] }
 
     return (
         <div className="max-h-[480px] flex flex-col overflow-y-auto rounded-2xl">
-            <h2 className="py-3 font-bold bg-azul sticky top-0">Vagas Ocupadas</h2>
+            <h2 className="py-3 font-bold bg-azul sticky top-0">Vagas Disponíveis</h2>
             {items.map(vacancie => (
                 <div key={vacancie.id} className="h-19 shrink-0 items-center justify-between px-5 flex border-t-1 border-azul bg-background-2">
                     <p className="text-sm">{[vacancie.longitude, vacancie.latitude]}</p>

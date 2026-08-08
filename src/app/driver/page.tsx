@@ -15,13 +15,16 @@ export default async function Page() {
                 </div>
 
                 <div className="mt-6 flex gap-5 font-semibold">
-                    <Card className="py-2 px-3 rounded-xl flex-row bg-azul text-text-branco items-center"> <strong>{locations?.length}</strong> Vagas livres </Card>
-                    <Card className="py-2 px-3 flex flex-row gap-4 rounded-xl text-paragraph items-center"> <Search className="w-5 h-5 "/> Buscar endereço </Card>
+                    <Card className="py-2 px-3 rounded-xl flex-row bg-azul text-text-branco items-center"> <strong>{locations?.length}</strong> Vagas disponíveis </Card>
+                    <Card className="py-2 px-3 flex flex-row gap-4 rounded-xl text-paragraph items-center"> <Search className="w-5 h-5 " /> Buscar endereço </Card>
                 </div>
             </div>
 
             <div className="h-155 px-6 py-5">
-               <LocationMap />
+                <LocationMap
+                    initialLocations={locations}
+                    showActions={false}
+                />
             </div>
         </main>
     )

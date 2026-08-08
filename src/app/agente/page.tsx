@@ -18,7 +18,7 @@ export default async function Dashboard() {
     if (!session) {
         redirect("/")
     }
-    
+
     return (
         <main className="w-full h-full">
             <div className="flex flex-col gap-7 mt-3 pt-8 pb-5 px-6 ">
@@ -32,7 +32,7 @@ export default async function Dashboard() {
 
                         <div className="flex flex-row gap-10 text-paragraph">
                             <h3 className="text-gray-text">{session.user.name}</h3>
-                            <h3 className="text-green">Online{}</h3>
+                            <h3 className="text-green">Online{ }</h3>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,10 @@ export default async function Dashboard() {
                 <div className="flex flex-row items-center gap-5">
                     <Card className="flex flex-row items-center px-3 py-1.5 rounded-xl border-2 bg-fundo border-text-branco0 text-text-branco">
                         <CarFront className="w-7 h-7" />
-                        <p className="text-paragraph "><strong>{locations?.length}</strong> vagas</p>
+                        <p className="text-paragraph ">
+                            <strong>{locations?.length}</strong>
+                            vagas
+                        </p>
                     </Card>
 
                     <ButtonSignOut button={"Sair"} />
@@ -52,7 +55,7 @@ export default async function Dashboard() {
             </div>
 
             <div className="text-text-branco px-6 text-center mt-6">
-                <ListOfVacancies vacancies={locations ?? []}/>
+                <ListOfVacancies vacancies={locations ?? []} />
             </div>
         </main>
     )
