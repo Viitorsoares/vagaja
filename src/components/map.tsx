@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { map } from "zod";
 
 type Location = {
     longitude: number
@@ -80,6 +81,29 @@ export default function Map({
             map.off('click', handleClick)
         }
     }, [interactive, coordinatesChange])
+
+    useEffect(() => {
+        if (interactive) return 
+
+        if (!selectedCoodinates) {
+            selectionMarkerRef.current?.remove()
+            selectionMarkerRef.current = null 
+            return
+        }
+
+        const map = mapRef.current
+        if(!map) return
+
+        if(!selectionMarkerRef.current) {
+            selectionMarkerRef.current = new mapboxgl.Marker().addTo(map)
+        }
+
+        selectionMarkerRef.current.setLngLat([
+            selectedCoodinates.longitude,
+            selectedCoodinates.latitude
+        ])
+
+    }, [selectedCoodinates, interactive])
 
     return (
         <div id='map-container' ref={mapContainerRef} className="w-full h-full rounded-2xl"></div>
