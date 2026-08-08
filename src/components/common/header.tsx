@@ -47,7 +47,7 @@ export default function Header() {
                 </span>
               </Link>
 
-              <Link href={"/auth/loginForm"}>
+              <Link href={"/form/loginForm"}>
                 <span className="btn-menu">
                   <li>
                     Agentes

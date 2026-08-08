@@ -15,7 +15,7 @@ const statistic = [
 
 const step = [
   { title: "1. Acesse o mapa", description: "Abra o mapa público no seu navegador, sem cadastro ou login necessário." },
-  { title: "2. Encontre a vaga", description: "Visualize em tempo real quais estacionamentos têm vagas livres perto de você." },
+  { title: "2. Encontre a vaga", description: "Visualize quais estacionamentos têm vagas livres perto de você em um só clique." },
   { title: "3. Chegue direto", description: "Navegue ao estacionamento escolhido e economize tempo e combustível." },
 ]
 
@@ -33,7 +33,7 @@ export default function Home() {
       <section className="px-6">
         <div>
           <h1 className="pt-20 text-text-branco text-center text-title font-extrabold leading-tight">Estacionamento <br /> urbano <br />
-            <span className="text-title font-extrabold text-azul"> inteligente e em tempo real</span>
+            <span className="text-title font-extrabold text-azul"> inteligente e de rápida atualização</span>
           </h1>
           <p className="mt-8 text-center text-subtitle text-text-branco"> Encontre vagas livres em segundos ou gerencie
             o estacionamento urbano como agente de fiscalização.

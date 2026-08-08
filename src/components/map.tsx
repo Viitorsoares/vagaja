@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import * as mapboxgl from 'mapbox-gl/esm'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { map } from "zod";
 
 type Location = {
     longitude: number
@@ -27,6 +26,7 @@ export default function Map({
     const savedMarkersRef = useRef<mapboxgl.Marker[]>([])
     const selectionMarkerRef = useRef<mapboxgl.Marker | null>(null)
 
+    // Cria o mapa uma única vez, evitando recriar o mapa desnecessariamente.
     useEffect(() => {
         const map = (mapRef.current = new mapboxgl.Map({
             accessToken: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
@@ -40,6 +40,7 @@ export default function Map({
         }
     }, [])
 
+    // Atualiza os marcadores sem recriar o mapa.
     useEffect(() => {
         const map = mapRef.current
         if (!map) return
@@ -61,6 +62,7 @@ export default function Map({
         }
     }, [locations])
 
+    // O Clique só funciona se interactive for 'false', usado em driver.
     useEffect(() => {
         const map = mapRef.current
         if (!map || !interactive || !coordinatesChange) return
@@ -82,8 +84,9 @@ export default function Map({
         }
     }, [interactive, coordinatesChange])
 
+    // Sincroniza o marcador com o estado do pai, cancelando o marcador.
     useEffect(() => {
-        if (interactive) return 
+        if (!interactive) return 
 
         if (!selectedCoodinates) {
             selectionMarkerRef.current?.remove()

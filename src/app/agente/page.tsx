@@ -23,7 +23,7 @@ export default async function Dashboard() {
         <main className="w-full h-full">
             <div className="flex flex-col gap-7 mt-3 pt-8 pb-5 px-6 ">
                 <div className="flex flex-row items-center gap-4 ">
-                    <div className="flex items-center justify-center w-18 h-18 rounded-2xl bg-text-branco">
+                    <div className="flex items-center justify-center w-18 h-18 rounded-2xl bg-gray-text">
                         <User className="w-14 h-14 text-preto" />
                     </div>
 
@@ -41,8 +41,7 @@ export default async function Dashboard() {
                     <Card className="flex flex-row items-center px-3 py-1.5 rounded-xl border-2 bg-fundo border-text-branco0 text-text-branco">
                         <CarFront className="w-7 h-7" />
                         <p className="text-paragraph ">
-                            <strong>{locations?.length}</strong>
-                            vagas
+                            <strong>{locations?.length}</strong> vagas
                         </p>
                     </Card>
 

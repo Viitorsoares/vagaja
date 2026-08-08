@@ -11,7 +11,8 @@ export default async function Page() {
             <div className="mt-3 py-8 px-6 bg-background-2">
                 <div>
                     <h1 className="text-text-branco text-title font-bold pb-2">Mapa de Vagas</h1>
-                    <p className="text-text-branco text-paragraph">Disponibilidade em tempo real.</p>
+            <span className="text-title font-extrabold text-azul"> </span>
+                    <p className="text-text-branco text-paragraph">Veja as vagas disponíveis agora.</p>
                 </div>
 
                 <div className="mt-6 flex gap-5 font-semibold">

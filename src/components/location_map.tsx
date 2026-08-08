@@ -11,15 +11,14 @@ type Location = {
 
 type LocationProps = {
     initialLocations: Location[]
-    showActions?: boolean
-
+    showActions?: true
 }
 
 export default function LocationMap({
     initialLocations = [],
     showActions = true,
 }: LocationProps) {
-    const [coordinates, setCoordinates] = useState<{ longitude: number, latitude: number } | null>(null)
+    const [coordinates, setCoordinates] = useState<Location | null>(null)
     const [isPending, startTransition] = useTransition()
 
     function handleCoordinates(longitude: number, latitude: number) {
@@ -41,7 +40,9 @@ export default function LocationMap({
         <div className="w-full h-full flex flex-col gap-3">
             <div className="h-[500px]">
                 <Map
+                    interactive={showActions}
                     coordinatesChange={handleCoordinates}
+                    selectedCoodinates={coordinates}
                     locations={initialLocations}
                 />
             </div>
