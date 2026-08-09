@@ -1,19 +1,19 @@
 import { Globe, Zap, ChartSpline, Shield, Users, LucideIcon } from 'lucide-react';
 
 export interface StatisticItem {
-    title: string
-    description: string
+  title: string
+  description: string
 }
 
 export interface StepItem {
-    title: string
-    description: string
+  title: string
+  description: string
 }
 
 export interface FeatureItem {
-    icon: LucideIcon
-    title: string
-    description: string
+  icon: LucideIcon
+  title: string
+  description: string
 }
 
 export const statistic: StatisticItem[] = [

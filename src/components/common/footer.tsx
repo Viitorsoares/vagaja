@@ -1,7 +1,9 @@
 import { MapPinIcon } from "@heroicons/react/24/solid";
 import { Mail, Phone, SquareArrowOutUpRight } from 'lucide-react';
-import Link from "next/link";
 import { FaInstagram, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import ServicesFooter from "./contents/props/servicesFooter";
+import InstitutionalFooter from "./contents/props/institutionalFooter";
+import { institutional, services } from "./contents/footerData";
 
 export default function Footer() {
     return (
@@ -31,54 +33,18 @@ export default function Footer() {
                 <div className="mb-10">
                     <h2 className="text-text-branco font-extrabold pb-3">Serviços</h2>
                     <div className="col-footer">
-                        <Link
-                            href={"/driver"}>
-                            <p className="cursor-pointer">Mapa de Vagas</p>
-                        </Link>
-                        <Link
-                            href={"/form/loginForm"}>
-                            <p className="cursor-pointer">Área do Agente</p>
-                        </Link>
-                        <Link
-                            href={"/form/registerForm"}>
-                            <p className="cursor-pointer">Cadastro de Agente</p>
-                        </Link>
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">Planos e Parcerias</p>
-                        </Link>
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">API para Empresas</p>
-                        </Link>
-
+                        {services.map((serv, i) => (
+                            <ServicesFooter key={i} href={serv.href} title={serv.title} />
+                        ))}
                     </div>
                 </div>
 
                 <div className="mb-10">
-                    <h2 className="text-text-branco font-extrabold pb-3">Institucioal</h2>
+                    <h2 className="text-text-branco font-extrabold pb-3">Institucional</h2>
                     <div className="col-footer">
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">Sobre nós</p>
-                        </Link>
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">Política de Privacidade</p>
-                        </Link>
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">Termos de Uso</p>
-                        </Link>
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">Acessibilidade</p>
-                        </Link>
-
-                        <Link
-                            href={""}>
-                            <p className="cursor-pointer">Imprensa</p>
-                        </Link>
+                        {institutional.map((inst, i) => (
+                            <InstitutionalFooter key={i} href={inst.href} title={inst.title} />
+                        ))}
                     </div>
                 </div>
 

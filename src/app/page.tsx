@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import StatisticCard from "./contents/_components/statisticCard";
-import FeatureCard from "./contents/_components/featureCard";
-import StepCard from "./contents/_components/stepCard";
-import ImageActionCard from "./contents/_components/imageActionCard";
+import StatisticCard from "./contents/props/statisticCard";
+import FeatureCard from "./contents/props/featureCard";
+import StepCard from "./contents/props/stepCard";
+import ImageActionCard from "./contents/props/imageActionCard";
 import { feature, statistic, step } from "./contents/homeData";
 
 export default function Home() {
