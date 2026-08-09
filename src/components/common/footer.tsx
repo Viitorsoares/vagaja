@@ -43,19 +43,42 @@ export default function Footer() {
                             href={"/form/registerForm"}>
                             <p className="cursor-pointer">Cadastro de Agente</p>
                         </Link>
-                        <p className="cursor-pointer">Planos e Parcerias</p>
-                        <p className="cursor-pointer">API para Empresas</p>
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">Planos e Parcerias</p>
+                        </Link>
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">API para Empresas</p>
+                        </Link>
+
                     </div>
                 </div>
 
                 <div className="mb-10">
                     <h2 className="text-text-branco font-extrabold pb-3">Institucioal</h2>
                     <div className="col-footer">
-                        <p className="cursor-pointer">Sobre nós</p>
-                        <p className="cursor-pointer">Política de Privacidade</p>
-                        <p className="cursor-pointer">Termos de Uso</p>
-                        <p className="cursor-pointer">Acessibilidade</p>
-                        <p className="cursor-pointer">Imprensa</p>
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">Sobre nós</p>
+                        </Link>
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">Política de Privacidade</p>
+                        </Link>
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">Termos de Uso</p>
+                        </Link>
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">Acessibilidade</p>
+                        </Link>
+
+                        <Link
+                            href={""}>
+                            <p className="cursor-pointer">Imprensa</p>
+                        </Link>
                     </div>
                 </div>
 

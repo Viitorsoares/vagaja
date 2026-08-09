@@ -1,31 +1,10 @@
 import Link from "next/link";
-import { Globe, Zap, ChartSpline, Shield, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import StatisticCard from "./_components/statisticCard";
-import FeatureCard from "./_components/featureCard";
-import StepCard from "./_components/stepCard";
-import ImageActionCard from "./_components/imageActionCard";
-
-const statistic = [
-  { title: "12+", description: "Cidades atendidas" },
-  { title: "3.4k", description: "Vagas monitoradas" },
-  { title: "840", description: "Agentes cadastrados" },
-  { title: "98%", description: "Uptime de sistema" }
-]
-
-const step = [
-  { title: "1. Acesse o mapa", description: "Abra o mapa público no seu navegador, sem cadastro ou login necessário." },
-  { title: "2. Encontre a vaga", description: "Visualize quais estacionamentos têm vagas livres perto de você em um só clique." },
-  { title: "3. Chegue direto", description: "Navegue ao estacionamento escolhido e economize tempo e combustível." },
-]
-
-const feature = [
-  { icon: Globe, title: "Mapa interativo", description: "Interface de mapa fluída com marcadores e zoom suave" },
-  { icon: Zap, title: "Acesso instantâneo", description: "Sem cadastro para motoristas. Abra e use em poucos segundos" },
-  { icon: ChartSpline, title: "Painel exclusivo", description: "Ferramentas de gestão, filtros por zona e relatórios para agentes." },
-  { icon: Shield, title: "Multi-agente e zonas", description: "Gerencie equipes de fiscalização com divisão por zonas geográficas." },
-  { icon: Users, title: "Relatórios e histórico", description: "Análise de ocupação, horários de pico e tendências por região." },
-]
+import StatisticCard from "./contents/_components/statisticCard";
+import FeatureCard from "./contents/_components/featureCard";
+import StepCard from "./contents/_components/stepCard";
+import ImageActionCard from "./contents/_components/imageActionCard";
+import { feature, statistic, step } from "./contents/homeData";
 
 export default function Home() {
   return (
