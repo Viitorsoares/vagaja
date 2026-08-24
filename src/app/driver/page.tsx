@@ -2,16 +2,17 @@ import LocationMap from "@/components/location_map";
 import { Card } from "@/components/ui/card";
 import { Search } from 'lucide-react';
 import getLocation from "@/actions/get_location_from_db"
+import ListOfVacancies from "../agente/list_of_vacancies";
 
 export default async function Page() {
     const locations = await getLocation()
 
     return (
-        <main className="h-screen w-full">
+        <main className="h-full w-full">
             <div className="mt-3 py-8 px-6 bg-background-2">
                 <div>
                     <h1 className="text-text-branco text-title font-bold pb-2">Mapa de Vagas</h1>
-            <span className="text-title font-extrabold text-azul"> </span>
+                    <span className="text-title font-extrabold text-azul"> </span>
                     <p className="text-text-branco text-paragraph">Veja as vagas disponíveis agora.</p>
                 </div>
 
@@ -26,6 +27,10 @@ export default async function Page() {
                     initialLocations={locations}
                     showActions={false}
                 />
+            </div>
+
+            <div className="text-text-branco px-6 text-center">
+                <ListOfVacancies vacancies={locations ?? []} canDelete={false} />
             </div>
         </main>
     )
