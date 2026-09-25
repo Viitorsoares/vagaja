@@ -27,7 +27,7 @@ export default async function Page() {
             <div className="mx-auto w-full max-w-7xl px-6 py-5 md:px-8 md:py-8 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start">
                 <div className="h-map md:h-140 lg:col-span-2 lg:h-150">
                     <LocationMap
-                        initialLocations={locations}
+                        initialLocations={locations ?? []}
                         showActions={false}
                     />
                 </div>
