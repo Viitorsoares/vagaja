@@ -11,7 +11,7 @@ type Location = {
 
 type LocationProps = {
     initialLocations: Location[]
-    showActions?: true
+    showActions?: boolean
 }
 
 export default function LocationMap({
