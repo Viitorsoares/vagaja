@@ -52,7 +52,7 @@ export default async function Dashboard() {
             <div className="bg-background-2">
                 <div className="mx-auto w-full max-w-7xl px-6 pt-5 pb-6 md:px-8 md:pt-8 md:pb-8 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start">
                     <div className="h-map md:h-140 lg:col-span-2 lg:h-150">
-                        <LocationMap initialLocations={locations} />
+                        <LocationMap initialLocations={locations ?? []} />
                     </div>
 
                     <div className="text-text-branco text-center mt-6 lg:mt-0">
