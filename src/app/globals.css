@@ -26,7 +26,11 @@
   --text-footer: .9rem; 
   --text-copyright: .8rem;
 
-  --spacing-map: 30rem
+  --spacing-map: 30rem;
+
+  /* Breakpoint extra para telas menores que 375px (iPhone SE 1a ger., Galaxy Fold fechado).
+     Gera as variantes xs: e max-xs: sem alterar o mobile a partir de 375px. */
+  --breakpoint-xs: 23.4375rem;
 }
 
 @theme inline {

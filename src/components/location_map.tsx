@@ -18,6 +18,7 @@ export default function LocationMap({
     initialLocations = [],
     showActions = true,
 }: LocationProps) {
+    const [locations, setLocations] = useState<Location[]>(initialLocations)
     const [coordinates, setCoordinates] = useState<Location | null>(null)
     const [isPending, startTransition] = useTransition()
 
@@ -27,8 +28,14 @@ export default function LocationMap({
 
     function handleSave() {
         if (!coordinates) return
+
+        const newLocation = coordinates
+
         startTransition(async () => {
-            await saveLocation(coordinates.longitude, coordinates.latitude)
+            await saveLocation(newLocation.longitude, newLocation.latitude)
+
+            setLocations(prev => [...prev, newLocation])
+            setCoordinates(null)
         })
     }
 
@@ -38,33 +45,33 @@ export default function LocationMap({
 
     return (
         <div className="w-full h-full flex flex-col gap-3">
-            <div className="h-[500px]">
+            <div className="flex-1 min-h-0">
                 <Map
                     interactive={showActions}
                     coordinatesChange={handleCoordinates}
                     selectedCoodinates={coordinates}
-                    locations={initialLocations}
+                    locations={locations}
                 />
             </div>
 
             {showActions && (
                 <>
-                    <div>
+                    <div className="shrink-0">
                         {coordinates && (
-                            <p className="text-text-branco">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
+                            <p className="text-text-branco text-sm wrap-break-word md:text-paragraph">Selecionado: {coordinates.longitude}, {coordinates.latitude}</p>
                         )}
                     </div>
 
-                    <div className="flex flex-row justify-around mb-6">
+                    <div className="shrink-0 flex flex-col gap-3 mb-6 xs:flex-row xs:justify-around xs:gap-4">
                         <button
-                            className="text-text-branco bg-azul font-semibold px-4 py-2 rounded-4xl cursor-pointer"
+                            className="text-text-branco bg-azul hover:bg-azul/90 font-semibold px-4 py-2 rounded-4xl cursor-pointer md:px-6 md:py-2.5"
                             onClick={handleSave}
                             disabled={!coordinates || isPending}
                         >
                             {isPending ? "Salvando..." : "Salvar localização"}
                         </button>
                         <button
-                            className="text-text-branco bg-red font-semibold px-4 py-2 rounded-4xl cursor-pointer"
+                            className="text-text-branco bg-red hover:bg-red/90 font-semibold px-4 py-2 rounded-4xl cursor-pointer md:px-6 md:py-2.5"
                             onClick={handleCancel}
                             disabled={!coordinates || isPending}
                         >

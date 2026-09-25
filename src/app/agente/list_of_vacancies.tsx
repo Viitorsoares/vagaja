@@ -27,13 +27,13 @@ export default function ListOfVacancies({
     }
 
     return (
-        <div className="max-h-[480px] flex flex-col overflow-y-auto rounded-2xl">
-            <h2 className="py-3 font-bold bg-azul sticky top-0">Controle de Vagas Disponíveis</h2>
+        <div className="max-h-map flex flex-col overflow-y-auto rounded-2xl lg:max-h-150">
+            <h2 className="py-3 px-5 font-bold bg-azul sticky top-0 z-10 md:py-4 md:px-6">Controle de Vagas Disponíveis</h2>
             {items.map(vacancie => (
-                <div key={vacancie.id} className="h-19 shrink-0 items-center justify-between px-5 flex border-t-1 border-azul bg-background-2">
-                    <p className="text-sm">{[vacancie.longitude, vacancie.latitude]}</p>
+                <div key={vacancie.id} className="h-19 shrink-0 items-center justify-between gap-3 px-5 flex border-t-1 border-azul bg-background-2 md:px-6">
+                    <p className="min-w-0 text-sm truncate">{[vacancie.longitude, vacancie.latitude]}</p>
                     {canDelete && (
-                        <Trash onClick={() => handleDeleteVacancie(vacancie.id)} />
+                        <Trash className="shrink-0 cursor-pointer" onClick={() => handleDeleteVacancie(vacancie.id)} />
                     )}
                 </div>
             ))}

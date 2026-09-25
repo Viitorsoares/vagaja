@@ -45,10 +45,10 @@ export default function RegisterForm() {
     }
 
     return (
-        <div className="w-full h-screen flex items-center justify-center">
-            <Card className="w-full max-w-sm">
+        <div className="w-full flex items-center justify-center px-6 py-10 md:min-h-140 md:px-8 md:py-16 lg:py-20">
+            <Card className="w-full max-w-sm md:max-w-md md:[--card-spacing:--spacing(6)]">
                 <CardHeader>
-                    <CardTitle className="text-azul text-3xl font-bold">Cadastro de Agente</CardTitle>
+                    <CardTitle className="text-azul text-3xl font-bold md:text-4xl">Cadastro de Agente</CardTitle>
                     <CardDescription className="text-black text-xl mt-2">
                         Preencha todos os campos abaixo
                     </CardDescription>
@@ -80,7 +80,7 @@ export default function RegisterForm() {
                             </div>
                         </div>
 
-                        <Button type="submit" className="bg-azul w-full mt-5 text-paragraph font-bold" disabled={isSubmitting}>
+                        <Button type="submit" className="bg-azul hover:bg-azul/90 w-full mt-5 text-paragraph font-bold" disabled={isSubmitting}>
                             {isSubmitting ? (
                                 <>
                                     <Loader2 className="animate-spin"/>

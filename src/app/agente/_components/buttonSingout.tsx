@@ -23,7 +23,7 @@ export default function ButtonSignOut({ button }: BtnPropy) {
     }
 
     return (
-        <Button onClick={signOut} className="bg-fundo text-red">
+        <Button onClick={signOut} className="bg-fundo hover:bg-fundo text-red">
             <LogOut />
             {button}
         </Button>

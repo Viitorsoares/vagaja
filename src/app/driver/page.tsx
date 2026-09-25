@@ -9,28 +9,32 @@ export default async function Page() {
 
     return (
         <main className="h-full w-full">
-            <div className="mt-3 py-8 px-6 bg-background-2">
-                <div>
-                    <h1 className="text-text-branco text-title font-bold pb-2">Mapa de Vagas</h1>
-                    <span className="text-title font-extrabold text-azul"> </span>
-                    <p className="text-text-branco text-paragraph">Veja as vagas disponíveis agora.</p>
-                </div>
+            <div className="mt-3 bg-background-2">
+                <div className="mx-auto w-full max-w-7xl py-8 px-6 md:px-8 md:py-10">
+                    <div>
+                        <h1 className="text-text-branco text-title font-bold pb-2 max-xs:text-3xl md:text-5xl">Mapa de Vagas</h1>
+                        <span className="text-title font-extrabold text-azul"> </span>
+                        <p className="text-text-branco text-paragraph md:text-subtitle">Veja as vagas disponíveis agora.</p>
+                    </div>
 
-                <div className="mt-6 flex gap-5 font-semibold">
-                    <Card className="py-2 px-3 rounded-xl flex-row bg-azul text-text-branco items-center"> <strong>{locations?.length}</strong> Vagas disponíveis </Card>
-                    <Card className="py-2 px-3 flex flex-row gap-4 rounded-xl text-paragraph items-center"> <Search className="w-5 h-5 " /> Buscar endereço </Card>
+                    <div className="mt-6 flex flex-col gap-5 font-semibold xs:flex-row xs:items-center">
+                        <Card className="py-2 px-3 rounded-xl flex-row bg-azul text-text-branco items-center xs:w-fit"> <strong>{locations?.length}</strong> Vagas disponíveis </Card>
+                        <Card className="py-2 px-3 flex flex-row gap-4 rounded-xl text-paragraph items-center xs:w-fit"> <Search className="w-5 h-5 " /> Buscar endereço </Card>
+                    </div>
                 </div>
             </div>
 
-            <div className="h-155 px-6 py-5">
-                <LocationMap
-                    initialLocations={locations}
-                    showActions={false}
-                />
-            </div>
+            <div className="mx-auto w-full max-w-7xl px-6 py-5 md:px-8 md:py-8 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start">
+                <div className="h-map md:h-140 lg:col-span-2 lg:h-150">
+                    <LocationMap
+                        initialLocations={locations}
+                        showActions={false}
+                    />
+                </div>
 
-            <div className="text-text-branco px-6 text-center">
-                <ListOfVacancies vacancies={locations ?? []} canDelete={false} />
+                <div className="text-text-branco text-center mt-6 lg:mt-0">
+                    <ListOfVacancies vacancies={locations ?? []} canDelete={false} />
+                </div>
             </div>
         </main>
     )

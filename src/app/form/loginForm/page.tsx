@@ -43,10 +43,10 @@ export default function LoginForm() {
     }
 
     return (
-        <div className="w-full h-screen flex items-center justify-center">
-            <Card className="w-full max-w-sm">
+        <div className="w-full flex items-center justify-center px-6 py-10 md:min-h-140 md:px-8 md:py-16 lg:py-20">
+            <Card className="w-full max-w-sm md:max-w-md md:[--card-spacing:--spacing(6)]">
                 <CardHeader>
-                    <CardTitle className="text-azul text-3xl font-bold">Área do Agente</CardTitle>
+                    <CardTitle className="text-azul text-3xl font-bold md:text-4xl">Área do Agente</CardTitle>
                     <CardDescription className="text-black text-xl mt-2">
                         Acesso restrito a agentes autorizados
                     </CardDescription>
@@ -67,7 +67,7 @@ export default function LoginForm() {
                             </div>
                         </div>
 
-                        <Button type="submit" className="bg-azul w-full mt-5 text-paragraph" disabled={isSubmitting}>
+                        <Button type="submit" className="bg-azul hover:bg-azul/90 w-full mt-5 text-paragraph" disabled={isSubmitting}>
                             {isSubmitting ? (
                                 <>
                                     <Loader2 className="animate-spin"/>
